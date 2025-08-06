@@ -141,7 +141,6 @@ impl App {
         let age_strata = if self.age < 55 { "<55" } else { "≥55" };
         let strata_key = (self.gender.clone(), age_strata.to_string());
 
-        // Block size 동적 반영
         if let Some(r) = self.randomizers.get_mut(&strata_key) {
             r.block_size = self.block_size;
         }
@@ -183,8 +182,8 @@ impl Default for App {
 impl eframe::App for App {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Comparative Study of Quality of Life and Lower Urinary Tract Symptoms According to Hyaluronic Acid Instillation after Ureteroscopic Stone Removal");
-            ui.separator();
+            // ui.heading("Project Name");
+            // ui.separator();
             ui.heading("Stratified Block Randomization (A/B 1:1)");
 
             ui.horizontal(|ui| {
