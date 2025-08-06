@@ -1,0 +1,12 @@
+[package]
+name = "randomizer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+eframe = "0"
+egui = "0"
+rand = "0"
+csv = "1"
+rust_xlsxwriter = "0"
