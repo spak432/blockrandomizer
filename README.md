@@ -8,16 +8,8 @@ git clone https://github.com/spak432/blockrandomizer.git
 cd blockrandomizer
 cargo build --release
 ```
-### Usage example (not yet implemented)
-```
-blockrandomizer --input strata.csv --block-size 4 --output allocation.csv
-```
-### Options (not yet implemented)
-```
---block-size: Specify the block size for randomization
---seed: Fix the random seed for reproducibility
---strata: (Optional) Specify stratification variables (e.g., age, gender)
-```
+<img width="401" height="316" alt="screenshot" src="https://github.com/user-attachments/assets/0e1a60d5-0292-4e35-99ae-5b9d4731ef4c" />
+
 ### License
 
 This tool is intended for research purposes. Please feel free to modify and use it under the terms of the MIT License.
