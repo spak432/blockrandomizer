@@ -44,7 +44,6 @@ impl BlockRandomizer {
             .cycle()
             .take(self.block_size)
             .collect();
-        // 부족한 군이 우선 오도록 block 재정렬
         block.sort_by(|a, b| if a == priority { std::cmp::Ordering::Less } else { a.cmp(b) });
         block.shuffle(&mut rng);
         self.queue.extend(block);
@@ -195,7 +194,7 @@ impl Default for App {
             counts_cache: HashMap::new(),
             total_cache: (0, 0),
         };
-        app.load_csv(); // CSV 자동 로드
+        app.load_csv();
         app
     }
 }
@@ -258,20 +257,6 @@ impl eframe::App for App {
             for (id, strata, group) in &self.log {
                 ui.label(format!("{} → [{}] {}", id, strata, group));
             }
-            // let counts = self.get_counts();
-            // for ((g, a), (ca, cb)) in &counts {
-            //     ui.label(format!("{} / {}: A={}  B={}  Δ={}", g, a, ca, cb, (*ca as i32 - *cb as i32).abs()));
-            // }
-
-            // let (total_a, total_b) = self.total_counts();
-            // ui.separator();
-            // ui.label(format!("Total: A={}  B={}  Δ={}", total_a, total_b, (total_a as i32 - total_b as i32).abs()));
-
-            // ui.separator();
-            // ui.heading("Assignment Log");
-            // for (id, strata, group) in &self.log {
-            //     ui.label(format!("{} → [{}] {}", id, strata, group));
-            // }
         });
     }
 }
